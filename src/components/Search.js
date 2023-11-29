@@ -1,15 +1,32 @@
 import React, { useState } from "react";
 
-function Search({ filterPlants }) {
+function Search({ plants, setPlants, displayedPlants, setDisplayedPlants }) {
   const [searchInput, setSearchInput] = useState("")
+
+  console.log(displayedPlants)
 
 
   function handleSearch(e) {
     setSearchInput(e.target.value)
 
-    filterPlants(searchInput)
+    if (searchInput === "") {
+      setDisplayedPlants(plants)
+    } else {
 
+    const newArray = plants.filter((each) => {
+        return each.name.toLowerCase().includes(searchInput.toLowerCase())
+      })
+
+    
+    setDisplayedPlants(newArray)
+
+    }
+
+    
+    
   }
+
+  
 
   return (
     <div className="searchbar">
