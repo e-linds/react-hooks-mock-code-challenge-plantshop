@@ -34,9 +34,23 @@ The base URL for your backend is: `http://localhost:6001`
 As a user:
 
 1. When the app starts, I can see all plants.
+//get data and fill in props down to plantcard
 2. I can add a new plant to the page by submitting the form.
+//add submit functionality to form - probably doesn't need to be controlled
 3. I can mark a plant as "sold out".
+//state variable for sold out, true or false, switches onClick
 4. I can search for plants by their name and see a filtered list of plants.
+//search bar functionality - live search - this needs to be a state variable on input and filter using .includes and .tolowercase
+
+App
+  Header
+  PlantPage
+    NewPlantForm
+    Search
+    PlantList
+      PlantCard
+
+
 
 ### Endpoints for Core Deliverables
 
