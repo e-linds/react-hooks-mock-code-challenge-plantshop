@@ -5,20 +5,20 @@ import Search from "./Search";
 
 function PlantPage() {
   const [plants, setPlants] = useState([])
-  const [displayedPlants, setDisplayedPlants] = useState([])
+  const [searchInput, setSearchInput] = useState("")
+
 
   useEffect(() => {
     fetch("http://localhost:6001/plants")
     .then(r => r.json())
     .then(data => {
       setPlants(data)
-      setDisplayedPlants(data)
     })
   }, [])
 
 
   function deletePlant(plantId) {
-    
+
     fetch(`http://localhost:6001/plants/${plantId}`, {
       method: "DELETE"
     })
@@ -27,17 +27,19 @@ function PlantPage() {
       return each.id !== plantId
     })
 
-    setPlants(newArray)
-    setDisplayedPlants(newArray)
-  
+    setPlants(newArray)  
   }
 
+  function handleSearch(e) {
+    setSearchInput(e.target.value)
+    console.log(searchInput)
+  }
   
   return (
     <main>
-      <NewPlantForm plants={plants} setPlants={setPlants} displayedPlants={displayedPlants} setDisplayedPlants={setDisplayedPlants}/>
-      <Search plants={plants} setPlants={setPlants} displayedPlants={displayedPlants} setDisplayedPlants={setDisplayedPlants}/>
-      <PlantList plants={plants} displayedPlants={displayedPlants} deletePlant={deletePlant}/>
+      <NewPlantForm plants={plants} setPlants={setPlants} />
+      <Search plants={plants} setPlants={setPlants} searchInput={searchInput} setSearchInput={setSearchInput} handleSearch={handleSearch}/>
+      <PlantList plants={plants} deletePlant={deletePlant} searchInput={searchInput} setSearchInput={setSearchInput}/>
     </main>
   );
 }

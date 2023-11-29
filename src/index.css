@@ -110,7 +110,18 @@ input:focus {
 }
 
 .card button {
-  margin-top: 0.5rem;
+  margin: 0.5rem;
+  border: solid;
+  border-width: 1px
+}
+
+#delete-plant {
+  background: #d0312D;
+  color: white;
+}
+
+#update-price-button {
+  font-size: 1em
 }
 
 @media (min-width: 768px) {
@@ -135,3 +146,4 @@ input:focus {
     width: calc(20% - 2rem);
   }
 }
+

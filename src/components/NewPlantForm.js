@@ -1,6 +1,6 @@
 import React from "react";
 
-function NewPlantForm({ plants, setPlants, displayedPlants, setDisplayedPlants }) {
+function NewPlantForm({ plants, setPlants }) {
 
 function handleSubmit(e) {
   e.preventDefault()
@@ -20,8 +20,6 @@ function handleSubmit(e) {
   })
 
   setPlants([...plants, newPlant])
-  setDisplayedPlants([...displayedPlants, newPlant])
-
 
 }
 
