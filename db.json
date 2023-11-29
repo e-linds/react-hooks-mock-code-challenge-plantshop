@@ -41,12 +41,6 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
-    },
-    {
-      "name": "Ficus Umbellata",
-      "image": "https://www.thespruce.com/thmb/mEm7AAiefya0vDmTxA4ZnjhIVpo=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/294935195_1572315159836883_4660613176008861953_n-78c2406f8f6e4e44899d39ff7e957a7f.jpg",
-      "price": "10",
-      "id": 8
     }
   ]
 }

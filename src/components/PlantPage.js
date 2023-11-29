@@ -16,12 +16,28 @@ function PlantPage() {
     })
   }, [])
 
+
+  function deletePlant(plantId) {
+    
+    fetch(`http://localhost:6001/plants/${plantId}`, {
+      method: "DELETE"
+    })
+
+    const newArray = plants.filter((each) => {
+      return each.id !== plantId
+    })
+
+    setPlants(newArray)
+    setDisplayedPlants(newArray)
+  
+  }
+
   
   return (
     <main>
       <NewPlantForm plants={plants} setPlants={setPlants} displayedPlants={displayedPlants} setDisplayedPlants={setDisplayedPlants}/>
       <Search plants={plants} setPlants={setPlants} displayedPlants={displayedPlants} setDisplayedPlants={setDisplayedPlants}/>
-      <PlantList plants={plants} displayedPlants={displayedPlants}/>
+      <PlantList plants={plants} displayedPlants={displayedPlants} deletePlant={deletePlant}/>
     </main>
   );
 }
